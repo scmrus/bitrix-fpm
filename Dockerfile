@@ -14,7 +14,7 @@ RUN apt-get update && apt-get install -y \
     libssl-dev \
     libmcrypt-dev \
     --no-install-recommends \
-    && rm -r /var/lib/apt/lists/*
+    && rm -r /var/lib/apt/lists/* \
     && docker-php-ext-install mcrypt \
     && docker-php-ext-configure gd \
            --enable-gd-native-ttf \
