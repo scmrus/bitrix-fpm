@@ -15,16 +15,12 @@ RUN apt-get update && apt-get install -y \
     libmcrypt-dev \
     --no-install-recommends \
     && rm -r /var/lib/apt/lists/* \
-    && docker-php-ext-install mcrypt \
-    && docker-php-ext-configure gd \
-           --enable-gd-native-ttf \
-           --with-freetype-dir=/usr/include/freetype2 \
-    && docker-php-ext-install pdo_mysql gd \
+    && docker-php-ext-install mcrypt mysqli pdo_mysql gd mbstring \
+    && docker-php-ext-configure gd --enable-gd-native-ttf --with-freetype-dir=/usr/include/freetype2 \
     && pecl install memcached \
     && docker-php-ext-enable memcached \
     && pecl install xdebug \
     && docker-php-ext-enable xdebug
-
 
 RUN usermod -u 1000 www-data
 
