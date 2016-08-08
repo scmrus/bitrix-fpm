@@ -18,7 +18,7 @@ RUN apt-get update && apt-get install -y \
     --no-install-recommends \
     && rm -r /var/lib/apt/lists/* \
     && docker-php-ext-configure ldap --with-libdir=lib/x86_64-linux-gnu/ \
-    && docker-php-ext-configure gd --enable-gd-native-ttf --with-freetype-dir=/usr/include/freetype2 \
+    && docker-php-ext-configure gd --enable-gd-native-ttf --with-jpeg-dir=/usr/lib/x86_64-linux-gnu --with-png-dir=/usr/lib/x86_64-linux-gnu --with-freetype-dir=/usr/lib/x86_64-linux-gnu \
     && docker-php-ext-install mcrypt mysqli pdo_mysql gd mbstring ldap \
     && pecl install memcached \
     && docker-php-ext-enable memcached \
