@@ -1,7 +1,5 @@
 FROM php:5.6-fpm
 
-MAINTAINER Sergey Antsupov <antsupov.sa@icloud.com>
-
 ADD ./bitrix.ini /usr/local/etc/php/conf.d
 ADD ./bitrix.pool.conf /usr/local/etc/php-fpm.d/
 
